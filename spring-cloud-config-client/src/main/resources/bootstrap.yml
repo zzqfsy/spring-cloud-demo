@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: application
+  cloud:
+    config:
+      uri: http://127.0.0.1:8061
+      profile: dev

@@ -1,0 +1,11 @@
+server:
+ port: 8062
+
+#servers:
+#  jpushCenter:
+#    host: http://127.0.0.1:8073/jpush/send/
+#    title: 云端钱包测试版
+#    destination: ydWalletTest
+#
+#apply:
+#  message: local message

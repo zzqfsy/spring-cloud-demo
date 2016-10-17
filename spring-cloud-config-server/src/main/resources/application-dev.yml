@@ -1,0 +1,30 @@
+servers:
+  jpushCenter:
+    host: http://127.0.0.1:8073/jpush/send/
+    title: server-云端钱包测试版
+    destination: server-ydWalletTest
+
+apply:
+  message: server-local message
+
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zzqfsy/config-repo
+          repos:
+            - patterns: multi-repo-demo-*
+              uri: https://github.com/zzqfsy/config-repo
+        health:
+          repositories:
+            myservice-dev:
+              name: application
+              profiles: dev
+        encrypt:
+          enabled: true
