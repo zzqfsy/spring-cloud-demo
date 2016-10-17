@@ -26,7 +26,7 @@ import java.util.Set;
 /**
  * Created by john on 16-10-17.
  */
-@Component
+//@Component
 public class PropertiesSchedule {
     private Set<String> standardSources = new HashSet<String>(Arrays.asList(
         StandardEnvironment.SYSTEM_PROPERTIES_PROPERTY_SOURCE_NAME,

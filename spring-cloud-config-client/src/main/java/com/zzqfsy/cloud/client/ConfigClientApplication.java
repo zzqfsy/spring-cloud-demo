@@ -8,7 +8,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * Created by john on 16-10-17.
  */
 @SpringBootApplication
-@EnableScheduling
+//@EnableScheduling
 public class ConfigClientApplication {
     public static void main(String[] args) {
         SpringApplication.run(ConfigClientApplication.class, args);
