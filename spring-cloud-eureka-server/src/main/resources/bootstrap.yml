@@ -1,6 +1,6 @@
 spring:
   application:
-    name: configclient
+    name: eurekaserver
   cloud:
     config:
       enabled: true

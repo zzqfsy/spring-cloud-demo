@@ -1,4 +1,4 @@
-package com.zzqfsy.cloud.client.properties;
+package com.zzqfsy.cloud.config.client.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;

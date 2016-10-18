@@ -1,6 +1,6 @@
-package com.zzqfsy.cloud.client.schedule;
+package com.zzqfsy.cloud.config.client.schedule;
 
-import com.zzqfsy.cloud.client.properties.JpushCenterProperties;
+import com.zzqfsy.cloud.config.client.properties.JpushCenterProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.cloud.context.environment.EnvironmentChangeEvent;
@@ -14,7 +14,6 @@ import org.springframework.core.env.MutablePropertySources;
 import org.springframework.core.env.PropertySource;
 import org.springframework.core.env.StandardEnvironment;
 import org.springframework.scheduling.annotation.Scheduled;
-import org.springframework.stereotype.Component;
 import org.springframework.web.context.support.StandardServletEnvironment;
 
 import java.util.Arrays;

@@ -1,16 +1,15 @@
-package com.zzqfsy.cloud.server;
+package com.zzqfsy.cloud.config.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
 
 /**
  * Created by john on 16-10-17.
  */
 @SpringBootApplication
-@EnableConfigServer
-public class ConfigServerApplication {
+//@EnableScheduling
+public class ConfigClientApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ConfigServerApplication.class, args);
+        SpringApplication.run(ConfigClientApplication.class, args);
     }
 }

@@ -1,5 +1,5 @@
 server:
- port: 8062
+ port: 8050
 
 #servers:
 #  jpushCenter:

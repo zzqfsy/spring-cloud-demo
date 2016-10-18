@@ -1,8 +1,9 @@
 spring:
   application:
-    name: configclient
+    name: eurekaservice
   cloud:
     config:
       enabled: true
       uri: http://127.0.0.1:8060
       profile: dev
+      label: master

@@ -1,6 +1,6 @@
-package com.zzqfsy.cloud.client.controller;
+package com.zzqfsy.cloud.config.client.controller;
 
-import com.zzqfsy.cloud.client.properties.JpushCenterProperties;
+import com.zzqfsy.cloud.config.client.properties.JpushCenterProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
