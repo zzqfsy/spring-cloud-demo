@@ -11,7 +11,7 @@ import static org.springframework.web.bind.annotation.RequestMethod.GET;
  */
 
 @FeignClient("eurekaservice")
-public interface HelloClient {
-    @RequestMapping(value = "/", method = GET)
+public interface HelloFeignClient {
+    @RequestMapping(value = "/hello", method = GET)
     String hello();
 }

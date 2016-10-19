@@ -11,6 +11,11 @@
 
   <artifactId>spring-cloud-config-client</artifactId>
 
+  <properties>
+    <java.version>1.8</java.version>
+    <start-class>com.zzqfsy.cloud.config.client.ConfigClientApplication</start-class>
+  </properties>
+
   <dependencies>
     <!-- spring boot web -->
     <dependency>

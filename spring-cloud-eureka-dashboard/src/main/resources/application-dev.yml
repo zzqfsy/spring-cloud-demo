@@ -2,6 +2,7 @@ server:
   port: 8063
 eureka:
   instance:
+    appname: eurekaservice2
     leaseRenewalIntervalInSeconds: 10
     metadataMap:
       instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
@@ -9,7 +10,7 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8061/eureka/
+      defaultZone: http://127.0.0.1:8061/eureka/
 
 turbine:
   aggregator:

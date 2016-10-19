@@ -3,9 +3,12 @@ server:
 
 eureka:
   instance:
-    leaseRenewalIntervalInSeconds: 10
+    appname: eurekaservice10
+    hostname: eurekaservice11
+    leaseRenewalIntervalInSeconds: 10 #default 30 seconds
     metadataMap:
-      instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+      instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+      #${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
   client:
     registerWithEureka: true
     fetchRegistry: true
