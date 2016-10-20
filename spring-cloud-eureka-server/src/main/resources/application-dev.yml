@@ -16,7 +16,7 @@ eureka:
 #    serviceUrl:
 #      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
      serviceUrl:
-       defaultZone: http://localhost:8061/eureka/
+       defaultZone: http://localhost:8071/eureka/
 
 
 

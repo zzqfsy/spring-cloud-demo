@@ -3,7 +3,7 @@ server:
 
 eureka:
   instance:
-    preferIpAddress: true
+    #preferIpAddress: true
     hostname: eurekaserver20
     appname: eurekaserver21
     statusPageUrlPath: ${management.context-path}/info
