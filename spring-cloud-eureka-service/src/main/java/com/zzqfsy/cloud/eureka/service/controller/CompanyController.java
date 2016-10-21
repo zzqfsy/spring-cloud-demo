@@ -11,12 +11,19 @@ import java.util.Random;
  * Created by john on 16-10-20.
  */
 @RestController
-public class CompanyService {
+@RequestMapping(value = "/api/companys")
+public class CompanyController {
 
-    @RequestMapping("/company/{id}")
+    @RequestMapping("/{id}")
     public Company getCompanyById(@PathVariable("id") Long id){
-        sleep();
+        //sleep();
         return new Company(id, "Company");
+    }
+
+    @RequestMapping("/")
+    public Company getCompanys(){
+        sleep();
+        return new Company(1L, "Company");
     }
 
     //利用时间等待模拟Serivce调用时长

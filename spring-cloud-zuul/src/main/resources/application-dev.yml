@@ -1,0 +1,54 @@
+server:
+  port: 8066
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+eureka:
+  instance:
+    appname: zuuledgeserver
+    leaseRenewalIntervalInSeconds: 10 #default 30 seconds
+    metadataMap:
+      instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+      #${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://127.0.0.1:8061/eureka/
+      #http://eurekaserver10:8061/eureka/,http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/
+
+zuul:
+  #ignored-services: '*'
+  #ignored-patterns: /**/admin/**
+  prefix: /api
+  stripPrefix: false
+  routes:
+    eurekaservice1:
+      path: /companys/**
+      serviceId: eurekaservice1
+      stripPrefix: false
+    eureka-server:
+      path: /products/**
+      #serviceId: products
+      stripPrefix: false
+
+ribbon:
+  readTimeout: 5000
+  hystrixTimeout: 4500
+  execTime: 4000
+
+#ribbon:
+#  restclient:
+#    enabled: true
+#  eureka:
+#    enabled: false
+
+#companys:
+#  ribbon:
+#    listOfServers: example.com,google.com

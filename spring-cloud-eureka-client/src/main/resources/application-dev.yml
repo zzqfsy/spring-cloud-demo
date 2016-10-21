@@ -11,4 +11,12 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8061/eureka/
+      defaultZone: http://127.0.0.1:8061/eureka/
+      #http://eurekaserver10:8061/eureka/,http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/
+
+#eurekaservice1:
+#  ribbon:
+#    DeploymentContextBasedVipAddresses: eurekaservice1
+#      NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
+#      ReadTimeout: 5000
+#      MaxAutoRetries: 2

@@ -3,8 +3,7 @@ server:
 
 eureka:
   instance:
-    appname: eurekaservice10
-    hostname: eurekaservice11
+    appname: eurekaservice1
     leaseRenewalIntervalInSeconds: 10 #default 30 seconds
     metadataMap:
       instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
@@ -13,4 +12,5 @@ eureka:
     registerWithEureka: true
     fetchRegistry: true
     serviceUrl:
-      defaultZone: http://localhost:8061/eureka/
+      defaultZone: http://127.0.0.1:8061/eureka/
+      #http://eurekaserver10:8061/eureka/,http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/

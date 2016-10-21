@@ -1,22 +1,17 @@
-package com.zzqfsy.cloud.eureka.client.hytrix;
+package com.zzqfsy.cloud.eureka.client.rpc.hytrix;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
-import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.zzqfsy.cloud.eureka.client.feign.HelloFeignClient;
-import com.zzqfsy.cloud.eureka.client.ribbon.HelloRibbonClient;
+import com.zzqfsy.cloud.eureka.client.rpc.feign.HelloFeignClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("hystrixHelloClient")
-public class HystrixWrappedHelloClient implements HelloFeignClient {
+public class HelloHystrixWrappedClient {
 
     @Autowired
     private HelloFeignClient helloFeignClient;
 
-    //@Autowired
-    //private HelloRibbonClient helloRibbonClient;
 
-    @Override
     @HystrixCommand(groupKey = "helloGroup", fallbackMethod = "fallBackCall")
     public String hello() {
         return this.helloFeignClient.hello();

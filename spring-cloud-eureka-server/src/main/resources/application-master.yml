@@ -11,10 +11,14 @@ eureka:
 #    healthCheckUrl: http://${eureka.hostname}/health
 #    homePageUrl: http://${eureka.hostname}/home
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+     serviceUrl:
+       defaultZone: http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/
+
+
 
 management:
   context-path: /manager

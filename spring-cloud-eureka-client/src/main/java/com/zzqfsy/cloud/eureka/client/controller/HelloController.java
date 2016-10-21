@@ -1,8 +1,8 @@
 package com.zzqfsy.cloud.eureka.client.controller;
 
-import com.zzqfsy.cloud.eureka.client.feign.HelloFeignClient;
+import com.zzqfsy.cloud.eureka.client.rpc.feign.HelloFeignClient;
+import com.zzqfsy.cloud.eureka.client.rpc.hytrix.HelloHystrixWrappedClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,8 +21,7 @@ public class HelloController {
     HelloFeignClient client;
 
     @Autowired
-    @Qualifier("hystrixHelloClient")
-    HelloFeignClient hytrixClient;
+    HelloHystrixWrappedClient hytrixClient;
 
     /**
      * 直接调用feign，feign会去调用eurekaService
@@ -41,5 +40,4 @@ public class HelloController {
     public String hytrixHello() {
         return hytrixClient.hello();
     }
-
 }

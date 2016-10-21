@@ -1,9 +1,10 @@
 server:
-  port: 8061
+  port: 8071
 
 eureka:
   instance:
-    hostname: eurekaserver10
+    #preferIpAddress: true
+    hostname: eurekaserver20
     appname: eureka-server
     statusPageUrlPath: ${management.context-path}/info
     healthCheckUrlPath: ${management.context-path}/health
@@ -11,10 +12,12 @@ eureka:
 #    healthCheckUrl: http://${eureka.hostname}/health
 #    homePageUrl: http://${eureka.hostname}/home
   client:
-    registerWithEureka: false
-    fetchRegistry: false
-    serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+#    registerWithEureka: false
+#    fetchRegistry: false
+#    serviceUrl:
+#      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+     serviceUrl:
+       defaultZone: http://eurekaserver10:8061/eureka/,http://eurekaserver30:8081/eureka/
 
 management:
   context-path: /manager

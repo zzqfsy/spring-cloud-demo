@@ -14,16 +14,17 @@ import java.util.Random;
  * Created by john on 16-10-20.
  */
 @RestController
+@RequestMapping("/api/employees")
 public class EmployeeController {
 
-    @RequestMapping("/employee/{id}")
+    @RequestMapping("/{id}")
     public Employee getEmployeeById(@PathVariable("id") Long id) {
 
         sleep();
         return new Employee(id,1L,"张三");
     }
 
-    @RequestMapping("/employee")
+    @RequestMapping("")
     public List<Employee> getEmployeesByCompanyId(@RequestParam("companyId") Long companyId){
         List<Employee> employees = new ArrayList<>();
 

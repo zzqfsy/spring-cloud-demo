@@ -5,6 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,19 +17,19 @@ import java.util.Random;
  * Created by john on 16-10-20.
  */
 @RestController
+@RequestMapping(value = "/api/products")
 public class ProductController {
 
     private static final Logger LOG = LoggerFactory.getLogger(ProductController.class);
 
-    @RequestMapping("/product/{id}")
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public Product getProductById(@PathVariable("id") Long id) {
-
-        sleep();
+        //sleep();
         return new Product(id, 1L, "T001");
     }
 
 
-    @RequestMapping("/product")
+    @RequestMapping(value = "/", method = RequestMethod.GET)
     public List<Product> getProductsByCompanyId(@RequestParam("companyId") Long companyId) {
         List<Product> products = new ArrayList<>();
 

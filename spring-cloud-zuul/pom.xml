@@ -9,11 +9,11 @@
   </parent>
   <modelVersion>4.0.0</modelVersion>
 
-  <artifactId>spring-cloud-eureka-serverbackup</artifactId>
+  <artifactId>spring-cloud-zuul</artifactId>
 
   <properties>
     <java.version>1.8</java.version>
-    <start-class>com.zzqfsy.cloud.eureka.server.EurekaServerApplication</start-class>
+    <start-class>com.zzqfsy.cloud.zuul.ZuulApplication</start-class>
   </properties>
 
   <dependencies>
@@ -25,7 +25,15 @@
     <!-- spring eureka server -->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-eureka-server</artifactId>
+      <artifactId>spring-cloud-starter-eureka</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-zuul</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-ribbon</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
