@@ -14,3 +14,10 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:8061/eureka/
       #http://eurekaserver10:8061/eureka/,http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/
+
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: DEBUG
+    org.springframework.web: DEBUG
+    org.springframework.cloud: DEBUG
+  level: DEBUG
