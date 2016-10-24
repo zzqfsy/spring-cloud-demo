@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: securityservice
+  cloud:
+    config:
+      enabled: true
+      uri: http://127.0.0.1:8060
+      profile: dev
+      label: master

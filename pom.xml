@@ -21,6 +21,7 @@
     <module>spring-cloud-eureka-service</module>
     <module>spring-cloud-eureka-dashboard</module>
     <module>spring-cloud-zuul-server</module>
+    <module>spring-security-service</module>
   </modules>
 
   <parent>
