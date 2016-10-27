@@ -19,6 +19,8 @@ spring:
       server:
         git:
           uri: https://github.com/zzqfsy/config-repo
+#          username:
+#          password:
           repos:
             - patterns: multi-repo-demo-*
               uri: https://github.com/zzqfsy/config-repo

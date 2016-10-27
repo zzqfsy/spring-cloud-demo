@@ -32,7 +32,7 @@ public class CompanyController {
         int time = rand.nextInt(2000);
 
         try {
-            Thread.sleep(time);
+            Thread.sleep(2000);
         } catch (Exception e) {
             e.printStackTrace();
         }

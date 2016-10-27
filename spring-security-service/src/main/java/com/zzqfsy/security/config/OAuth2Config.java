@@ -24,36 +24,20 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
 
     @Autowired
     private AuthenticationManager authenticationManager;
-
-
-
+    @Override
+    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
+        endpoints.authenticationManager(authenticationManager);
+    }
+    @Override
+    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
+        oauthServer.checkTokenAccess("isAuthenticated()");
+    }
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-               .withClient("client")
-               .secret("secret")
-               .authorizedGrantTypes("authorization_code", "refresh_token", "password")
-               .scopes("openid");
+               .withClient("clientId")
+               .secret("secretId")
+               .authorizedGrantTypes("authorization_code", "client_credentials")
+               .scopes("app");
     }
-
-    /*@Override
-    public void configure(AuthorizationServerSecurityConfigurer oauthServer) throws Exception {
-        oauthServer.tokenKeyAccess("permitAll()").checkTokenAccess("isAuthenticated()");
-    }
-
-    @Override
-    public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-        endpoints.authenticationManager(authenticationManager).accessTokenConverter(
-            jwtAccessTokenConverter());
-    }
-
-    @Bean
-    public JwtAccessTokenConverter jwtAccessTokenConverter() {
-        JwtAccessTokenConverter converter = new JwtAccessTokenConverter();
-        KeyPair keyPair = new KeyStoreKeyFactory(
-            new ClassPathResource("keystore.jks"), "foobar".toCharArray())
-            .getKeyPair("test");
-        converter.setKeyPair(keyPair);
-        return converter;
-    }*/
 }

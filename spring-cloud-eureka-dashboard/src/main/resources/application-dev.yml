@@ -12,6 +12,6 @@ eureka:
     serviceUrl:
       defaultZone: http://127.0.0.1:8061/eureka/
 
-turbine:
-  aggregator:
-    clusterConfig: eurekaclient
+#turbine:
+#  aggregator:
+#    clusterConfig: eurekaclient

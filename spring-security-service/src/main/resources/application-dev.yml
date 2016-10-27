@@ -7,12 +7,15 @@ security:
     name: user
     password: password
 #  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
-#  oauth2:
-#    client:
-#      access-token-uri: #指定获取access token的URI.
-#      user-authorization-uri:
-#      access-token-validity-seconds:  #指定access token失效时长.
-#      refresh-token-validity-seconds:
+  oauth2:
+    resource:
+      token-info-uri: http://localhost:8069/oauth/check_token
+    client:
+      client-id: clientId
+      client-secret: secretId
+      user-authorization-uri: http://localhost:8069/oauth/authorize
+      access-token-uri: http://localhost:8069/oauth/token
+      grant-type: client_credentials
 
 eureka:
   instance:

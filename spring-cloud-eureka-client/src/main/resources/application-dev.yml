@@ -14,9 +14,30 @@ eureka:
       defaultZone: http://127.0.0.1:8061/eureka/
       #http://eurekaserver10:8061/eureka/,http://eurekaserver20:8071/eureka/,http://eurekaserver30:8081/eureka/
 
-#eurekaservice1:
-#  ribbon:
-#    DeploymentContextBasedVipAddresses: eurekaservice1
-#      NIWSServerListClassName: com.netflix.niws.loadbalancer.DiscoveryEnabledNIWSServerList
-#      ReadTimeout: 5000
-#      MaxAutoRetries: 2
+#spring:
+#  cloud:
+#    config:
+#      discovery:
+#        enabled: true
+#        service-id: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+    getCompanys2:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+eurekaservice1:
+  ribbon:
+    MaxAutoRetries: 2
+    ConnectTimeout: 5000
+    ReadTimeout: 10000
+    OkToRetryOnAllOperations: true
+    EnableGZIPContentEncodingFilter: true
