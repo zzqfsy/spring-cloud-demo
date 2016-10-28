@@ -28,16 +28,20 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 5000
-    getCompanys2:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 5000
+#    getCompanys:
+#      execution:
+#        isolation:
+#          thread:
+#            timeoutInMilliseconds: 5000
 
-eurekaservice1:
-  ribbon:
-    MaxAutoRetries: 2
-    ConnectTimeout: 5000
-    ReadTimeout: 10000
-    OkToRetryOnAllOperations: true
-    EnableGZIPContentEncodingFilter: true
+#eurekaservice1:
+#  ribbon:
+#    MaxAutoRetries: 2
+#    ConnectTimeout: 5000
+#    ReadTimeout: 10000
+#    OkToRetryOnAllOperations: true
+#    EnableGZIPContentEncodingFilter: true
+
+#feign:
+#  hystrix:
+#    enabled: true

@@ -22,3 +22,11 @@ logging:
     org.springframework.web: DEBUG
     org.springframework.cloud: DEBUG
   level: DEBUG
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000

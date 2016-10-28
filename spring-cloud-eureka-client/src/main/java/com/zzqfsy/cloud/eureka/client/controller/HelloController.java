@@ -15,14 +15,10 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * Created with j360-cloud-all -> me.j360.cloud.eurekaclient.controller.
- * User: min_xu
- * Date: 2015/10/9
- * Time: 10:53
- * 说明：
+ * Created by john on 16-10-28.
  */
-
 @RestController
+@RequestMapping("/api")
 public class HelloController {
 
     @Autowired

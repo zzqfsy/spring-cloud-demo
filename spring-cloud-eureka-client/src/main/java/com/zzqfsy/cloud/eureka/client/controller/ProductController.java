@@ -14,7 +14,8 @@ import java.util.List;
  * Created by john on 16-10-21.
  */
 @RestController
-public class ProductService {
+@RequestMapping("/api")
+public class ProductController {
     @Autowired
     ProductHystrixWrappedClient productHystrixWrappedClient;
 

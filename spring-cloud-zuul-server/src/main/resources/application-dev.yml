@@ -35,13 +35,25 @@ zuul:
       stripPrefix: false
     eureka-server:
       path: /products/**
-      #serviceId: products
+      #serviceId: eureka-server
+      stripPrefix: false
+    eurekadashboard:
+      path: /employees/**
+      serviceId: eurekadashboard
       stripPrefix: false
 
 ribbon:
   readTimeout: 5000
   hystrixTimeout: 4500
   execTime: 4000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
 
 #ribbon:
 #  restclient:

@@ -12,29 +12,37 @@ import org.springframework.stereotype.Service;
 import rx.Observable;
 import rx.Subscriber;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.concurrent.Future;
 
 /**
  * Created by john on 16-10-21.
  */
 @Service("companyHystrixWrappedClient")
-@DefaultProperties
 public class CompanyHystrixWrappedClient {
     @Autowired
     private CompanyFeignClient companyFeignClient;
 
-    @HystrixCommand(fallbackMethod = "fallBackCall")
-    public Company getCompanys(Integer i) {
-        return companyFeignClient.getCompanys();
+    @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCall")
+    public Company getCompanyById(Long id) {
+        return companyFeignClient.getCompanyById(id);
     }
 
+    public Company fallBackCall(Long id) {
+        return new Company(id, "FAILED SERVICE CALL! - FALLING BACK");
+    }
+
+    @HystrixCommand(fallbackMethod = "fallBackCall")
+    public Company getCompanys() {
+        return companyFeignClient.getCompanys();
+    }
 
     @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCall")
     public Company getCompanys1() {
         return companyFeignClient.getCompanys();
     }
 
-    @HystrixProperty(name = "getCompanys2", value = "getCompanys2")
     @HystrixCommand(commandProperties = {
         @HystrixProperty(name = "execution.isolation.thread.timeoutInMilliseconds", value = "5000")
     },  threadPoolProperties = {
@@ -49,9 +57,16 @@ public class CompanyHystrixWrappedClient {
         return companyFeignClient.getCompanys();
     }
 
+
+    @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCallList")
+    public List<Company> getCompanyByIds(String id) {
+        return Arrays.asList(companyFeignClient.getCompanys());
+    }
+
+
     /** Asynchronous Execution */
-    @HystrixCollapser(batchMethod = "getCompanys")
-    public Future<Company> getCompanysFutureCollapser(Integer i) {
+    @HystrixCollapser(batchMethod = "getCompanyByIds")
+    public Future<Company> getCompanyByIdAsync(String id) {
         return null;
     }
     @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCall")
@@ -65,8 +80,8 @@ public class CompanyHystrixWrappedClient {
     }
 
     /** Reactive Execution */
-    @HystrixCollapser(batchMethod = "getCompanys")
-    public Observable<Company> getCompanysObservableCollapser(Integer i) {
+    @HystrixCollapser(batchMethod = "getCompanyByIds")
+    public Observable<Company> getCompanyByIdReact(String id) {
         return null;
     }
     @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCall")
@@ -90,13 +105,7 @@ public class CompanyHystrixWrappedClient {
         return new Company(1L, "FAILED SERVICE CALL! - FALLING BACK");
     }
 
-
-    @HystrixCommand(groupKey = "eurekaservice1", fallbackMethod = "fallBackCall")
-    public Company getCompanyById(Long id) {
-        return companyFeignClient.getCompanyById(id);
-    }
-
-    public Company fallBackCall(Long id) {
-        return new Company(id, "FAILED SERVICE CALL! - FALLING BACK");
+    public List<Company> fallBackCallList() {
+        return Arrays.asList(new Company(1L, "FAILED SERVICE CALL! - FALLING BACK"));
     }
 }

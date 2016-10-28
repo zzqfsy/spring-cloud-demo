@@ -19,12 +19,11 @@ public class EmployeeController {
 
     @RequestMapping("/{id}")
     public Employee getEmployeeById(@PathVariable("id") Long id) {
-
         sleep();
         return new Employee(id,1L,"张三");
     }
 
-    @RequestMapping("")
+    @RequestMapping("/")
     public List<Employee> getEmployeesByCompanyId(@RequestParam("companyId") Long companyId){
         List<Employee> employees = new ArrayList<>();
 

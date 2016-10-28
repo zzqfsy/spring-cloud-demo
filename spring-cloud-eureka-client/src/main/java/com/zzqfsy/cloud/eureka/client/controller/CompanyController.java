@@ -7,6 +7,7 @@ import com.zzqfsy.cloud.eureka.client.model.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import rx.Observable;
 
@@ -17,14 +18,14 @@ import java.util.concurrent.Future;
  * Created by john on 16-10-20.
  */
 @RestController
-public class CompanyService {
-
+@RequestMapping("/api")
+public class CompanyController {
     @Autowired
     CompanyHystrixWrappedClient companyHystrixWrappedClient;
 
     @RequestMapping("/companys")
     public Company getCompanys(){
-        return companyHystrixWrappedClient.getCompanys(11);
+        return companyHystrixWrappedClient.getCompanys();
     }
 
     @RequestMapping("/companys1")
@@ -39,7 +40,7 @@ public class CompanyService {
 
     @RequestMapping("/companysFutureCollapser")
     public Company getCompanysFutureCollapser(){
-        Future<Company> companyFuture = companyHystrixWrappedClient.getCompanysFutureCollapser(1);
+        Future<Company> companyFuture = companyHystrixWrappedClient.getCompanyByIdAsync("1");
         try {
             return companyFuture.get();
         } catch (InterruptedException | ExecutionException e) {
@@ -62,7 +63,7 @@ public class CompanyService {
 
     @RequestMapping("/companysObservableCollapser")
     public Company getCompanysObservableCollapser(){
-        Observable<Company> companyObservable = companyHystrixWrappedClient.getCompanysObservableCollapser(1);
+        Observable<Company> companyObservable = companyHystrixWrappedClient.getCompanyByIdReact("1");
         return companyObservable.toBlocking().single();
     }
 

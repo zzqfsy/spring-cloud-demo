@@ -1,6 +1,6 @@
-package com.zzqfsy.cloud.eureka.client.rpc.feign;
+package com.zzqfsy.cloud.eureka.service.rpc.feign;
 
-import com.zzqfsy.cloud.eureka.client.model.Product;
+import com.zzqfsy.cloud.eureka.service.rpc.model.Product;
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
