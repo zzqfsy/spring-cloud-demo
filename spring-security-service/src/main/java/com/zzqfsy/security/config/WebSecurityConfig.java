@@ -1,3 +1,4 @@
+/*
 package com.zzqfsy.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,9 +10,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 
+*/
 /**
  * Created by john on 16-10-24.
- */
+ *//*
+
 @Configuration
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
@@ -27,7 +30,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 //                    .authenticationEntryPoint(entryPointBean()) // handle authentication exceptions for unauthorized calls.
             .and()
             .authorizeRequests()
-//                    .antMatchers("/hystrix.stream/**", "/info", "/error").permitAll()
+//                    .antMatchers("/hystrix.stream*/
+/**", "/info", "/error").permitAll()
             .anyRequest().authenticated().and().csrf().disable();
     }
 
@@ -45,6 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     // 不需要权限控制的路径
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/hystrix.stream/**", "/info", "/error");
+        web.ignoring().antMatchers("/hystrix.stream*/
+/**", "/info", "/error");
     }
-}
+}*/

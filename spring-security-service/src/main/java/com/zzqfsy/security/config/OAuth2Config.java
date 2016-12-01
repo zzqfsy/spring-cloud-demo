@@ -1,3 +1,4 @@
+/*
 package com.zzqfsy.security.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +16,11 @@ import org.springframework.security.oauth2.provider.token.store.KeyStoreKeyFacto
 
 import java.security.KeyPair;
 
+*/
 /**
  * Created by john on 16-10-24.
- */
+ *//*
+
 @Configuration
 @EnableAuthorizationServer
 public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
@@ -41,3 +44,4 @@ public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
                .scopes("app");
     }
 }
+*/

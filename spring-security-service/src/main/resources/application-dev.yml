@@ -6,16 +6,14 @@ security:
   user:
     name: user
     password: password
-#  ignored: /css/**,/js/**,/favicon.ico,/webjars/**
   oauth2:
-    resource:
-      token-info-uri: http://localhost:8069/oauth/check_token
     client:
-      client-id: clientId
-      client-secret: secretId
-      user-authorization-uri: http://localhost:8069/oauth/authorize
-      access-token-uri: http://localhost:8069/oauth/token
-      grant-type: client_credentials
+      client-id: acme
+      client-secret: acmesecret
+      authorized-grant-types: authorization_code,refresh_token,password
+      scope: openid
+      access-token-uri: http://localhost:8069/api/oauth/token
+      user-authorization-uri: http://localhost:8069/api/oauth/authorize
 
 eureka:
   instance:
